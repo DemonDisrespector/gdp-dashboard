@@ -1,0 +1,41 @@
+{
+  "resourceType": "AllergyIntolerance",
+  "id": "allergyintolerance-001",
+  "clinicalStatus": {
+    "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical", "code": "active", "display": "Active" }]
+  },
+  "verificationStatus": {
+    "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification", "code": "confirmed", "display": "Confirmed" }]
+  },
+  "type": "allergy",
+  "category": ["medication"],
+  "criticality": "high",
+  "code": {
+    "coding": [
+      { "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "code": "7980", "display": "Penicillin" },
+      { "system": "http://snomed.info/sct", "code": "372687004", "display": "Amoxicillin" }
+    ],
+    "text": "Penicillin / Amoxicillin"
+  },
+  "patient": { "reference": "Patient/patient-001", "display": "Sarah Johnson" },
+  "onsetDateTime": "2005-07-01",
+  "recordedDate": "2020-03-20",
+  "recorder": { "reference": "Practitioner/practitioner-001" },
+  "reaction": [
+    {
+      "substance": {
+        "coding": [{ "system": "http://snomed.info/sct", "code": "372687004", "display": "Amoxicillin" }]
+      },
+      "manifestation": [
+        { "coding": [{ "system": "http://snomed.info/sct", "code": "271807003", "display": "Skin rash" }] },
+        { "coding": [{ "system": "http://snomed.info/sct", "code": "267036007", "display": "Urticaria" }] }
+      ],
+      "description": "Generalized urticaria and maculopapular rash within 30 min of dose",
+      "severity": "severe",
+      "exposureRoute": {
+        "coding": [{ "system": "http://snomed.info/sct", "code": "26643006", "display": "Oral route" }]
+      }
+    }
+  ],
+  "note": [{ "text": "Patient reports childhood reaction requiring ER visit. Avoid all penicillins and cephalosporins (cross-reactivity)." }]
+}

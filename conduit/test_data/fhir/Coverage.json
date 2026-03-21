@@ -1,0 +1,21 @@
+{
+  "resourceType": "Coverage",
+  "id": "coverage-001",
+  "status": "active",
+  "type": {
+    "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode", "code": "PPO", "display": "Preferred Provider Organization" }]
+  },
+  "subscriber": { "reference": "Patient/patient-001", "display": "Sarah Johnson" },
+  "subscriberId": "UHC-987654321",
+  "beneficiary": { "reference": "Patient/patient-001" },
+  "relationship": {
+    "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship", "code": "self", "display": "Self" }]
+  },
+  "period": { "start": "2024-01-01", "end": "2024-12-31" },
+  "payor": [{ "display": "UnitedHealthcare", "reference": "Organization/uhc-001" }],
+  "class": [
+    { "type": { "coding": [{ "code": "group", "display": "Group" }] }, "value": "GRP-78901", "name": "Employer Group" },
+    { "type": { "coding": [{ "code": "plan",  "display": "Plan"  }] }, "value": "PLN-UHC-GOLD", "name": "Gold PPO Plan" }
+  ],
+  "order": 1
+}

@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "resource_type": "ServiceRequest",
+  "static": {
+    "sourceSystem": "conduit",
+    "resourceType": "ServiceRequest"
+  },
+  "fields": [
+    { "source": "id",                                   "dest": "fhirId",             "required": true  },
+    { "source": "status",                               "dest": "status",             "required": true  },
+    { "source": "intent",                               "dest": "intent",             "required": true  },
+    { "source": "priority",                             "dest": "priority",           "required": false },
+    { "source": "code.coding[0].code",                  "dest": "serviceCode",        "required": false },
+    { "source": "code.coding[0].display",               "dest": "serviceDescription", "required": true  },
+    { "source": "subject.reference",                    "dest": "patientReference",   "required": true  },
+    { "source": "requester.reference",                  "dest": "requesterReference", "required": false },
+    { "source": "requester.display",                    "dest": "requesterName",      "required": false },
+    { "source": "performer[0].reference",               "dest": "performerReference", "required": false },
+    { "source": "performer[0].display",                 "dest": "performerName",      "required": false },
+    { "source": "occurrenceDateTime",                   "dest": "requestedDate",      "required": false, "transform": "date_iso" },
+    { "source": "authoredOn",                           "dest": "authoredDate",       "required": false, "transform": "date_iso" },
+    { "source": "reasonCode[0].coding[0].display",      "dest": "clinicalIndication", "required": false },
+    { "source": "note[0].text",                         "dest": "notes",              "required": false }
+  ]
+}

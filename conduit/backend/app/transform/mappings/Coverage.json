@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "resource_type": "Coverage",
+  "static": {
+    "sourceSystem": "conduit",
+    "resourceType": "Coverage"
+  },
+  "fields": [
+    { "source": "id",                              "dest": "fhirId",          "required": true  },
+    { "source": "status",                          "dest": "status",          "required": true  },
+    { "source": "type.coding[0].display",          "dest": "insuranceType",   "required": false },
+    { "source": "payor[0].display",                "dest": "payorName",       "required": false },
+    { "source": "payor[0].reference",              "dest": "payorReference",  "required": false },
+    { "source": "subscriberId",                    "dest": "memberId",        "required": false },
+    { "source": "beneficiary.reference",           "dest": "patientReference","required": true  },
+    { "source": "relationship.coding[0].code",     "dest": "relationship",    "required": false },
+    { "source": "period.start",                    "dest": "effectiveStart",  "required": false, "transform": "date_iso" },
+    { "source": "period.end",                      "dest": "effectiveEnd",    "required": false, "transform": "date_iso" },
+    { "source": "class[0].value",                  "dest": "groupNumber",     "required": false },
+    { "source": "class[1].value",                  "dest": "planNumber",      "required": false },
+    { "source": "order",                           "dest": "priority",        "required": false, "transform": "int" }
+  ]
+}

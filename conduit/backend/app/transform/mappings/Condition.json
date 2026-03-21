@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "resource_type": "Condition",
+  "static": {
+    "sourceSystem": "conduit",
+    "resourceType": "Condition"
+  },
+  "fields": [
+    { "source": "id",                                         "dest": "fhirId",            "required": true  },
+    { "source": "clinicalStatus.coding[0].code",              "dest": "clinicalStatus",    "required": false },
+    { "source": "verificationStatus.coding[0].code",          "dest": "verificationStatus","required": false },
+    { "source": "category[0].coding[0].code",                 "dest": "category",          "required": false },
+    { "source": "severity.coding[0].display",                 "dest": "severity",          "required": false },
+    { "source": "code.coding[0].code",                        "dest": "icdCode",           "required": false },
+    { "source": "code.coding[0].display",                     "dest": "diagnosis",         "required": true  },
+    { "source": "code.coding[0].system",                      "dest": "codeSystem",        "required": false },
+    { "source": "subject.reference",                          "dest": "patientReference",  "required": true  },
+    { "source": "onsetDateTime",                              "dest": "onsetDate",         "required": false, "transform": "date_iso" },
+    { "source": "abatementDateTime",                          "dest": "abatementDate",     "required": false, "transform": "date_iso" },
+    { "source": "recordedDate",                               "dest": "recordedDate",      "required": false, "transform": "date_iso" },
+    { "source": "note[0].text",                               "dest": "notes",             "required": false }
+  ]
+}

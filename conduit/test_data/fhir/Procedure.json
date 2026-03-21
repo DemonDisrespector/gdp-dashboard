@@ -1,0 +1,27 @@
+{
+  "resourceType": "Procedure",
+  "id": "procedure-001",
+  "status": "completed",
+  "category": {
+    "coding": [{ "system": "http://snomed.info/sct", "code": "103693007", "display": "Diagnostic procedure" }]
+  },
+  "code": {
+    "coding": [
+      { "system": "http://www.ama-assn.org/go/cpt", "code": "93000", "display": "Electrocardiogram, routine ECG with at least 12 leads" },
+      { "system": "http://snomed.info/sct", "code": "29303009", "display": "Electrocardiographic procedure" }
+    ],
+    "text": "12-Lead ECG"
+  },
+  "subject": { "reference": "Patient/patient-001", "display": "Sarah Johnson" },
+  "performedDateTime": "2024-01-10T09:15:00Z",
+  "performer": [
+    {
+      "function": { "coding": [{ "system": "http://snomed.info/sct", "code": "59058001", "display": "General physician" }] },
+      "actor": { "reference": "Practitioner/practitioner-001", "display": "Dr. Michael Chen" }
+    }
+  ],
+  "reasonCode": [
+    { "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "R00.0", "display": "Tachycardia, unspecified" }] }
+  ],
+  "note": [{ "text": "Normal sinus rhythm. No acute ST changes. Rate 72 bpm." }]
+}

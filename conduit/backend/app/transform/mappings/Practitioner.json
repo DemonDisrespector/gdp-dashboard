@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "resource_type": "Practitioner",
+  "static": {
+    "sourceSystem": "conduit",
+    "resourceType": "Practitioner"
+  },
+  "fields": [
+    { "source": "id",                          "dest": "fhirId",       "required": true  },
+    { "source": "name[0].family",              "dest": "lastName",     "required": false },
+    { "source": "name[0].given[0]",            "dest": "firstName",    "required": false },
+    { "source": "name[0].prefix[0]",           "dest": "title",        "required": false },
+    { "source": "identifier[0].value",         "dest": "npi",          "required": false },
+    { "source": "telecom[0].value",            "dest": "phone",        "required": false },
+    { "source": "telecom[1].value",            "dest": "fax",          "required": false },
+    { "source": "address[0].line[0]",          "dest": "address.street","required": false },
+    { "source": "address[0].city",             "dest": "address.city", "required": false },
+    { "source": "address[0].state",            "dest": "address.state","required": false },
+    { "source": "address[0].postalCode",       "dest": "address.zip",  "required": false },
+    { "source": "qualification[0].code.coding[0].display", "dest": "specialty", "required": false }
+  ]
+}

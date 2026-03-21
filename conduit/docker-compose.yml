@@ -1,0 +1,92 @@
+version: "3.9"
+
+# ── Networks ──────────────────────────────────────────────────────────────────
+networks:
+  conduit-net:
+    driver: bridge
+
+# ── Volumes ───────────────────────────────────────────────────────────────────
+volumes:
+  postgres-data:
+
+# ── Services ──────────────────────────────────────────────────────────────────
+services:
+
+  # ── PostgreSQL ──────────────────────────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: conduit
+      POSTGRES_PASSWORD: conduit
+      POSTGRES_DB: conduit
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U conduit"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - conduit-net
+
+  # ── Backend (FastAPI) ───────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      target: development
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql+asyncpg://conduit:conduit@db:5432/conduit
+      ENVIRONMENT: development
+      DEBUG: "true"
+      LOG_LEVEL: DEBUG
+      # ModMed credentials – override in .env
+      MODMED_CLIENT_ID: ${MODMED_CLIENT_ID:-dev-client-id}
+      MODMED_CLIENT_SECRET: ${MODMED_CLIENT_SECRET:-dev-client-secret}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:-dev-only-32-byte-key-replace-me!}
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - conduit-net
+
+  # ── Frontend (Vite dev server) ──────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      target: development
+    restart: unless-stopped
+    environment:
+      VITE_API_BASE_URL: http://localhost:8000/api/v1
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules        # preserve installed modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - conduit-net
+
+  # ── HAPI FHIR (optional local FHIR server for testing) ─────────────────────
+  fhir-server:
+    image: hapiproject/hapi:v7.4.0
+    restart: unless-stopped
+    environment:
+      hapi.fhir.default_encoding: json
+      hapi.fhir.fhir_version: R4
+      spring.datasource.url: jdbc:h2:mem:hapi
+    ports:
+      - "8080:8080"
+    profiles:
+      - fhir          # opt-in: docker compose --profile fhir up
+    networks:
+      - conduit-net

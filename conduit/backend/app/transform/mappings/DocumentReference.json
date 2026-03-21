@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "resource_type": "DocumentReference",
+  "static": {
+    "sourceSystem": "conduit",
+    "resourceType": "DocumentReference"
+  },
+  "fields": [
+    { "source": "id",                              "dest": "fhirId",           "required": true  },
+    { "source": "status",                          "dest": "status",           "required": true  },
+    { "source": "docStatus",                       "dest": "docStatus",        "required": false },
+    { "source": "type.coding[0].code",             "dest": "typeCode",         "required": false },
+    { "source": "type.coding[0].display",          "dest": "documentType",     "required": false },
+    { "source": "category[0].coding[0].display",   "dest": "category",         "required": false },
+    { "source": "subject.reference",               "dest": "patientReference", "required": true  },
+    { "source": "date",                            "dest": "documentDate",     "required": false, "transform": "date_iso" },
+    { "source": "author[0].reference",             "dest": "authorReference",  "required": false },
+    { "source": "author[0].display",               "dest": "authorName",       "required": false },
+    { "source": "description",                     "dest": "description",      "required": false },
+    { "source": "content[0].attachment.url",       "dest": "contentUrl",       "required": false },
+    { "source": "content[0].attachment.contentType","dest": "contentType",     "required": false },
+    { "source": "content[0].attachment.title",     "dest": "title",            "required": false }
+  ]
+}

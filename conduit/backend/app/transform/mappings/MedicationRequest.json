@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "resource_type": "MedicationRequest",
+  "static": {
+    "sourceSystem": "conduit",
+    "resourceType": "MedicationRequest"
+  },
+  "fields": [
+    { "source": "id",                                              "dest": "fhirId",             "required": true  },
+    { "source": "status",                                          "dest": "status",             "required": true  },
+    { "source": "intent",                                          "dest": "intent",             "required": true  },
+    { "source": "medicationCodeableConcept.coding[0].code",        "dest": "rxNormCode",         "required": false },
+    { "source": "medicationCodeableConcept.coding[0].display",     "dest": "medicationName",     "required": true  },
+    { "source": "subject.reference",                               "dest": "patientReference",   "required": true  },
+    { "source": "requester.reference",                             "dest": "prescriberReference","required": false },
+    { "source": "requester.display",                               "dest": "prescriberName",     "required": false },
+    { "source": "authoredOn",                                      "dest": "prescribedDate",     "required": false, "transform": "date_iso" },
+    { "source": "dosageInstruction[0].text",                       "dest": "dosageInstructions", "required": false },
+    { "source": "dosageInstruction[0].doseAndRate[0].doseQuantity.value",  "dest": "doseValue",  "required": false },
+    { "source": "dosageInstruction[0].doseAndRate[0].doseQuantity.unit",   "dest": "doseUnit",   "required": false },
+    { "source": "dispenseRequest.numberOfRepeatsAllowed",          "dest": "refillsAllowed",     "required": false, "transform": "int" },
+    { "source": "dispenseRequest.quantity.value",                  "dest": "quantityValue",      "required": false },
+    { "source": "reasonCode[0].coding[0].display",                 "dest": "indication",         "required": false },
+    { "source": "note[0].text",                                    "dest": "notes",              "required": false }
+  ]
+}

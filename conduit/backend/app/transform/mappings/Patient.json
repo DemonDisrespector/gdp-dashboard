@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "resource_type": "Patient",
+  "static": {
+    "sourceSystem": "conduit",
+    "resourceType": "Patient"
+  },
+  "fields": [
+    { "source": "id",                        "dest": "fhirId",         "required": true  },
+    { "source": "name[0].family",            "dest": "lastName",       "required": true,  "transform": "upper" },
+    { "source": "name[0].given[0]",          "dest": "firstName",      "required": true  },
+    { "source": "name[0].given[1]",          "dest": "middleName",     "required": false },
+    { "source": "birthDate",                 "dest": "dateOfBirth",    "required": true,  "transform": "date_iso" },
+    { "source": "gender",                    "dest": "gender",         "required": false },
+    { "source": "telecom[0].value",          "dest": "phone",          "required": false },
+    { "source": "telecom[1].value",          "dest": "email",          "required": false },
+    { "source": "address[0].line[0]",        "dest": "address.street", "required": false },
+    { "source": "address[0].city",           "dest": "address.city",   "required": false },
+    { "source": "address[0].state",          "dest": "address.state",  "required": false },
+    { "source": "address[0].postalCode",     "dest": "address.zip",    "required": false },
+    { "source": "identifier[0].value",       "dest": "mrn",            "required": false },
+    { "source": "maritalStatus.coding[0].code", "dest": "maritalStatus", "required": false },
+    { "source": "communication[0].language.coding[0].code", "dest": "preferredLanguage", "required": false }
+  ]
+}

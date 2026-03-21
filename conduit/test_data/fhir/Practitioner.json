@@ -1,0 +1,48 @@
+{
+  "resourceType": "Practitioner",
+  "id": "practitioner-001",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1234567890"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Chen",
+      "given": ["Michael", "Wei"],
+      "prefix": ["Dr."],
+      "suffix": ["MD"]
+    }
+  ],
+  "telecom": [
+    { "system": "phone", "value": "555-234-5678", "use": "work" },
+    { "system": "fax",   "value": "555-234-5679", "use": "work" },
+    { "system": "email", "value": "m.chen@springfield-medical.com", "use": "work" }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": ["456 Medical Plaza", "Suite 200"],
+      "city": "Springfield",
+      "state": "IL",
+      "postalCode": "62702"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1975-09-22",
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          { "system": "http://terminology.hl7.org/CodeSystem/v2-0360", "code": "MD", "display": "Doctor of Medicine" }
+        ],
+        "text": "Internal Medicine / Primary Care"
+      },
+      "period": { "start": "2003-06-01" },
+      "issuer": { "display": "American Board of Internal Medicine" }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "resource_type": "Procedure",
+  "static": {
+    "sourceSystem": "conduit",
+    "resourceType": "Procedure"
+  },
+  "fields": [
+    { "source": "id",                              "dest": "fhirId",           "required": true  },
+    { "source": "status",                          "dest": "status",           "required": true  },
+    { "source": "code.coding[0].code",             "dest": "cptCode",          "required": false },
+    { "source": "code.coding[0].display",          "dest": "procedureName",    "required": true  },
+    { "source": "subject.reference",               "dest": "patientReference", "required": true  },
+    { "source": "performedDateTime",               "dest": "performedDate",    "required": false, "transform": "date_iso" },
+    { "source": "performer[0].actor.reference",    "dest": "performerReference","required": false },
+    { "source": "performer[0].actor.display",      "dest": "performerName",    "required": false },
+    { "source": "reasonCode[0].coding[0].display", "dest": "indication",       "required": false },
+    { "source": "note[0].text",                    "dest": "notes",            "required": false }
+  ]
+}

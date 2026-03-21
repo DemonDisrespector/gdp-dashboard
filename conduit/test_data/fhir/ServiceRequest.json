@@ -1,0 +1,28 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-001",
+  "status": "active",
+  "intent": "order",
+  "priority": "routine",
+  "category": [
+    { "coding": [{ "system": "http://snomed.info/sct", "code": "306206005", "display": "Referral to service" }] }
+  ],
+  "code": {
+    "coding": [
+      { "system": "http://snomed.info/sct", "code": "306206005", "display": "Referral to endocrinology" },
+      { "system": "http://www.ama-assn.org/go/cpt", "code": "99243", "display": "Office consultation" }
+    ],
+    "text": "Referral to Endocrinology for diabetes management"
+  },
+  "subject": { "reference": "Patient/patient-001", "display": "Sarah Johnson" },
+  "occurrenceDateTime": "2024-02-15",
+  "authoredOn": "2024-01-20",
+  "requester": { "reference": "Practitioner/practitioner-001", "display": "Dr. Michael Chen" },
+  "performer": [{ "display": "Springfield Endocrinology Associates" }],
+  "reasonCode": [
+    {
+      "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9", "display": "Type 2 diabetes mellitus without complications" }]
+    }
+  ],
+  "note": [{ "text": "Patient has suboptimal glycemic control despite metformin 1000mg BID. Requesting specialist evaluation for insulin initiation vs. GLP-1 agonist." }]
+}

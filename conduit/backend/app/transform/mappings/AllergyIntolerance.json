@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "resource_type": "AllergyIntolerance",
+  "static": {
+    "sourceSystem": "conduit",
+    "resourceType": "AllergyIntolerance"
+  },
+  "fields": [
+    { "source": "id",                                       "dest": "fhirId",           "required": true  },
+    { "source": "clinicalStatus.coding[0].code",            "dest": "clinicalStatus",   "required": false },
+    { "source": "verificationStatus.coding[0].code",        "dest": "verificationStatus","required": false },
+    { "source": "type",                                     "dest": "type",             "required": false },
+    { "source": "category[0]",                              "dest": "category",         "required": false },
+    { "source": "criticality",                              "dest": "criticality",      "required": false },
+    { "source": "code.coding[0].code",                      "dest": "allergenCode",     "required": false },
+    { "source": "code.coding[0].display",                   "dest": "allergen",         "required": true  },
+    { "source": "patient.reference",                        "dest": "patientReference", "required": true  },
+    { "source": "onsetDateTime",                            "dest": "onsetDate",        "required": false, "transform": "date_iso" },
+    { "source": "recordedDate",                             "dest": "recordedDate",     "required": false, "transform": "date_iso" },
+    { "source": "reaction[0].manifestation[0].coding[0].display","dest": "reaction",   "required": false },
+    { "source": "reaction[0].severity",                     "dest": "reactionSeverity", "required": false },
+    { "source": "note[0].text",                             "dest": "notes",            "required": false }
+  ]
+}
