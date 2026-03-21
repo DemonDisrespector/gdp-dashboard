@@ -6,7 +6,7 @@ import pytest
 
 from app.transform.engine import TransformEngine, _resolve_path, load_mapping
 
-FHIR_DIR = Path(__file__).parent.parent.parent.parent / "test_data" / "fhir"
+FHIR_DIR = Path(__file__).parent.parent.parent / "test_data" / "fhir"
 
 
 def load_fixture(name: str) -> dict:

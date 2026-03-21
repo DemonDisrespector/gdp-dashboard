@@ -13,7 +13,7 @@ from app.main import app
 
 TEST_DB_URL = "sqlite+aiosqlite:///:memory:"
 
-TEST_DATA_DIR = Path(__file__).parent.parent.parent.parent / "test_data" / "fhir"
+TEST_DATA_DIR = Path(__file__).parent.parent.parent / "test_data" / "fhir"
 
 
 @pytest_asyncio.fixture(scope="function")
