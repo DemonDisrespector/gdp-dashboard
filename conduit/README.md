@@ -1,6 +1,6 @@
-# Conduit – HIPAA-Compliant Referral Transfer Agent
+# QuantumBridge – HIPAA-Compliant Referral Transfer Agent
 
-Conduit automates the transfer of patient referral data from ModMed (FHIR R4) to
+QuantumBridge automates the transfer of patient referral data from ModMed (FHIR R4) to
 downstream EHR systems, portals, or FHIR servers. All transfers are audit-logged
 with de-identified events per HIPAA §164.312(b).
 
@@ -8,7 +8,7 @@ with de-identified events per HIPAA §164.312(b).
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                         Conduit Backend (FastAPI)                │
+│                         QuantumBridge Backend (FastAPI)                │
 │                                                                  │
 │  ┌──────────────┐   ┌─────────────────┐   ┌─────────────────┐  │
 │  │  FHIR Client │──▶│ Transform Engine│──▶│  Destination    │  │

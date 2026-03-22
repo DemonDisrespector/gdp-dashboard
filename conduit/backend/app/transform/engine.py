@@ -22,7 +22,7 @@ and has the following shape::
             ...
         ],
         "static": {                              // Always-present destination fields
-            "sourceSystem": "conduit"
+            "sourceSystem": "quantumbridge"
         }
     }
 """

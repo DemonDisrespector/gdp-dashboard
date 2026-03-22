@@ -1,4 +1,4 @@
--- Conduit database initialization
+-- QuantumBridge database initialization
 -- Runs once on first container start
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";

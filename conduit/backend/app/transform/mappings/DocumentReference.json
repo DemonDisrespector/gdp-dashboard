@@ -2,7 +2,7 @@
   "version": "1.0",
   "resource_type": "DocumentReference",
   "static": {
-    "sourceSystem": "conduit",
+    "sourceSystem": "quantumbridge",
     "resourceType": "DocumentReference"
   },
   "fields": [

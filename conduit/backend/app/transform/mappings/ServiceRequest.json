@@ -2,7 +2,7 @@
   "version": "1.0",
   "resource_type": "ServiceRequest",
   "static": {
-    "sourceSystem": "conduit",
+    "sourceSystem": "quantumbridge",
     "resourceType": "ServiceRequest"
   },
   "fields": [

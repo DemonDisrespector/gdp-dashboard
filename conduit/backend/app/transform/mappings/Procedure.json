@@ -2,7 +2,7 @@
   "version": "1.0",
   "resource_type": "Procedure",
   "static": {
-    "sourceSystem": "conduit",
+    "sourceSystem": "quantumbridge",
     "resourceType": "Procedure"
   },
   "fields": [

@@ -2,7 +2,7 @@
   "version": "1.0",
   "resource_type": "MedicationRequest",
   "static": {
-    "sourceSystem": "conduit",
+    "sourceSystem": "quantumbridge",
     "resourceType": "MedicationRequest"
   },
   "fields": [

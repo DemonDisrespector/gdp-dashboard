@@ -1,4 +1,4 @@
-"""Conduit FastAPI application entry point."""
+"""QuantumBridge FastAPI application entry point."""
 import logging
 import time
 import uuid
@@ -19,18 +19,18 @@ settings = get_settings()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Initialize resources on startup, clean up on shutdown."""
-    logger.info("Starting Conduit %s [%s]", settings.app_version, settings.environment)
+    logger.info("Starting QuantumBridge %s [%s]", settings.app_version, settings.environment)
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
     logger.info("Database schema ready")
     yield
-    logger.info("Shutting down Conduit")
+    logger.info("Shutting down QuantumBridge")
     await engine.dispose()
 
 
 def create_app() -> FastAPI:
     app = FastAPI(
-        title="Conduit – HIPAA Referral Transfer Agent",
+        title="QuantumBridge – HIPAA Referral Transfer Agent",
         version=settings.app_version,
         docs_url="/docs" if settings.environment != "production" else None,
         redoc_url="/redoc" if settings.environment != "production" else None,

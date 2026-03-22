@@ -13,7 +13,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-6">
           <span className="font-bold text-xl tracking-tight flex items-center gap-2">
             <Activity className="w-5 h-5" />
-            Conduit
+            QuantumBridge
           </span>
           <nav className="flex gap-4 text-sm font-medium">
             <NavLink
@@ -62,7 +62,7 @@ export default function App() {
       </main>
 
       <footer className="text-center text-xs text-gray-400 py-3 border-t">
-        Conduit v0.1.0 – HIPAA-compliant referral transfer agent
+        QuantumBridge v0.1.0 – HIPAA-compliant referral transfer agent
       </footer>
     </div>
   );

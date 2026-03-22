@@ -2,7 +2,7 @@
   "version": "1.0",
   "resource_type": "Condition",
   "static": {
-    "sourceSystem": "conduit",
+    "sourceSystem": "quantumbridge",
     "resourceType": "Condition"
   },
   "fields": [
